@@ -105,7 +105,7 @@ def test_minute_ar():
     time = datetime.now() - timedelta(minutes=5, seconds=5)
     assert past_date2word(time) == "منذ 5 دقائق و 5 ثواني"
     time = datetime.now() - timedelta(minutes=13, seconds=13)
-    assert past_date2word(time) == "منذ 13 ثانية و 13 ثانية"
+    assert past_date2word(time) == "منذ 13 دقيقة و 13 ثانية"
 
 
 def test_hour_ar():
