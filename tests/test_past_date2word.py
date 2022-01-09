@@ -142,7 +142,7 @@ def test_week_ar():
     assert past_date2word(time, "ar") == "منذ اسبوع ويوم"
     time = datetime.now() - timedelta(weeks=2,days=2)
     assert past_date2word(time, "ar") == "منذ اسبوعين ويومين"
-    time = datetime.now() - timedelta(weeks=4, days=4)
+    time = datetime.now() - timedelta(weeks=3, days=4)
     assert past_date2word(time, "ar") == "منذ 3 اسابيع و 4 ايام"
     
 def test_month_ar():
