@@ -129,7 +129,7 @@ def test_day_ar():
     time = datetime.now() - timedelta(days=2,hours=2)
     assert past_date2word(time, "ar") == "منذ يومين وساعتين"
     time = datetime.now() - timedelta(days=5, hours=5)
-    assert past_date2word(time, "ar") == "منذ 5 ايام و 5 ساعات "
+    assert past_date2word(time, "ar") == "منذ 5 ايام و 5 ساعات"
     time = datetime.now() - timedelta(days=15, hours=15)
     assert past_date2word(time, "ar") == "منذ 15 يوم و 15 ساعة"
 
@@ -170,7 +170,7 @@ def test_year_ar():
     time = datetime.now() - timedelta(weeks=(one_year_to_week) +(one_month_to_week * 1))
     assert past_date2word(time, "ar") == "منذ سنة وشهر"
     time = datetime.now() - timedelta(weeks=(one_year_to_week * 2) +(one_month_to_week * 2))
-    assert past_date2word(time, "ar") == " منذ سنتين وشهرين"
+    assert past_date2word(time, "ar") == "منذ سنتين وشهرين"
     time = datetime.now() - timedelta(weeks=(one_year_to_week * 5)+(one_month_to_week * 5))
     assert past_date2word(time, "ar") == "منذ 5 سنوات و 5 شهور"
     time = datetime.now() - timedelta(
