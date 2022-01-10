@@ -130,8 +130,8 @@ def test_day_ar():
     assert past_date2word(time, "ar") == "منذ يومين وساعتين"
     time = datetime.now() - timedelta(days=5, hours=5)
     assert past_date2word(time, "ar") == "منذ 5 ايام و 5 ساعات"
-    time = datetime.now() - timedelta(days=15, hours=15)
-    assert past_date2word(time, "ar") == "منذ 15 يوم و 15 ساعة"
+    time = datetime.now() - timedelta(days=6, hours=15)
+    assert past_date2word(time, "ar") == "منذ 6 ايام و 15 ساعة"
 
 
 def test_week_ar():
