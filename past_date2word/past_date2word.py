@@ -66,7 +66,7 @@ def get_word(key: str, number: int, lang: str) -> str:
 
 
 def past_date2word(
-    date: datetime, language: str = "en", with_ago: bool = True, long_text: bool = True
+    date: datetime, language: str = "en", with_ago: bool = True, long_sentence: bool = True
 ) -> Optional[str]:
     """تحويل التاريخ الماضي الى نص
 
@@ -76,7 +76,7 @@ def past_date2word(
                     [Arabic<'`ar`'>, English<'`en`'>]. \n
                     Defaults to 'en'.
         with_ago (bool, optional): With "`ago`" at the end of the sentence. Defaults to True.
-        long_text (bool, optional): Add the hours, minutes and seconds in the sentence. Defaults to True.
+        long_sentence (bool, optional): Add the hours, minutes and seconds in the sentence. Defaults to True.
 
     المخرجات:
         Optional[str]: The `date` as a sentence or `None` if it not in past
@@ -112,7 +112,7 @@ def past_date2word(
                     else ""
                 )
                 full_word = first_word
-                if ((not long_text) and (time_name in ["day", "hour", "minute"])) or (
+                if ((not long_sentence) and (time_name in ["day", "hour", "minute"])) or (
                     not with_second_word
                 ):
                     pass
