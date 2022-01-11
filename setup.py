@@ -1,6 +1,6 @@
 import setuptools
 
-VERSION = "0.0.2"
+VERSION = "0.1.0"
 README_FILENAME = "README.md"
 KEYWORD = [
     "date to text",
@@ -30,5 +30,5 @@ setuptools.setup(
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.7",
+    python_requires=">=3.8",
 )
