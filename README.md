@@ -25,21 +25,21 @@ past_date2word is library helps you to convert the past date to text
 * [Examples](#Examples)
 
   * [English](#English)
-    * [Seconds](#Seconds)
-    * [Minutes](#Minutes)
-    * [Hours](#Hours)
-    * [Days](#Days)
-    * [Weeks](#Weeks)
-    * [Months](#MonthsWeeks)
-    * [Years](#Years)
+    * [Seconds](#Seconds-EN)
+    * [Minutes](#Minutes-EN)
+    * [Hours](#Hours-EN)
+    * [Days](#Days-EN)
+    * [Weeks](#Weeks-EN)
+    * [Months](#Months-EN)
+    * [Years](#Years-EN)
   * [Arabic](#Arabic)
-    * [Seconds](#Seconds)
-    * [Minutes](#Minutes)
-    * [Hours](#Hours)
-    * [Days](#Days)
-    * [Weeks](#Weeks)
-    * [Months](#MonthsWeeks)
-    * [Years](#Years)
+    * [Seconds](#Seconds-AR)
+    * [Minutes](#Minutes-AR)
+    * [Hours](#Hours-AR)
+    * [Days](#Days-AR)
+    * [Weeks](#Weeks-AR)
+    * [Months](#Months-AR)
+    * [Years](#Years-AR)
 
 * [License](#License)
 
@@ -71,7 +71,7 @@ pip3 install past_date2word
 
 ### English
 
-#### Seconds
+#### Seconds EN
 ```python
 time = datetime.now() - timedelta(seconds=1)
 
@@ -86,7 +86,7 @@ assert (
 ```
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### Minutes
+#### Minutes EN
 ```python
 time = datetime.now() - timedelta(minutes=9, seconds=34)
 
@@ -110,7 +110,7 @@ assert (
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### Hours
+#### Hours EN
 ```python
 time = datetime.now() - timedelta(hours=12, minutes=44)
 
@@ -134,7 +134,7 @@ assert (
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### Days
+#### Days EN
 ```python
 time = datetime.now() - timedelta(days=5, hours=15)
 
@@ -158,7 +158,7 @@ assert (
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### Weeks
+#### Weeks EN
 ```python
 time = datetime.now() - timedelta(weeks=2, days=4)
 
@@ -182,7 +182,7 @@ assert (
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### Months
+#### Months EN
 ```python
 # 4 weeks == 1 month
 one_month_to_week = 4 * 1
@@ -209,7 +209,7 @@ assert (
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### Years
+#### Years EN
 ```python
 # 12 month == 1 year
 # 4 weeks == 1 month
@@ -242,7 +242,7 @@ assert (
 
 ### Arabic
 
-#### Seconds
+#### SecondsAR
 ```python
 time = datetime.now() - timedelta(seconds=13)
 
@@ -273,7 +273,7 @@ print(
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### Minutes
+#### MinutesAR
 ```python
 time = datetime.now() - timedelta(minutes=13, seconds=13)
 
@@ -304,7 +304,7 @@ print(
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### Hours
+#### HoursAR
 ```python
 time = datetime.now() - timedelta(hours=13, minutes=13)
 
@@ -335,7 +335,7 @@ print(
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### Days
+#### DaysAR
 ```python
 time = datetime.now() - timedelta(days=6, hours=15)
 
@@ -366,7 +366,7 @@ print(
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### Weeks
+#### WeeksAR
 ```python
 time = datetime.now() - timedelta(weeks=3, days=4)
 
@@ -397,7 +397,7 @@ print(
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### Months
+#### MonthsAR
 ```python
 one_month_to_week = 4 * 1
 
@@ -430,7 +430,7 @@ print(
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### Years
+#### YearsAR
 ```python
 # 12 month == 1 year
 # 4 weeks == 1 month
