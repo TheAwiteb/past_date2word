@@ -1,10 +1,4 @@
-
-
-
 # past_date2word
-
-
-**past_date2word is library helps you to convert the past date to text**
 
 <p align="center">
   <a href="https://pypi.org/project/past_date2word/">
@@ -24,14 +18,30 @@
   </a>
 </p>
 
+past_date2word is library helps you to convert the past date to text
 
-[Requirements](#Requirements)
-•
-[Installation](#Installation)
-•
-[Examples](#Examples)
-•
-[License](#License)
+* [Requirements](#Requirements)
+* [Installation](#Installation)
+* [Examples](#Examples)
+
+  * [English](#English)
+    * [Seconds](#Seconds)
+    * [Minutes](#Minutes)
+    * [Hours](#Hours)
+    * [Days](#Days)
+    * [Weeks](#Weeks)
+    * [Months](#MonthsWeeks)
+    * [Years](#Years)
+  * [Arabic](#Arabic)
+    * [Seconds](#Seconds)
+    * [Minutes](#Minutes)
+    * [Hours](#Hours)
+    * [Days](#Days)
+    * [Weeks](#Weeks)
+    * [Months](#MonthsWeeks)
+    * [Years](#Years)
+
+* [License](#License)
 
 ***
 ## Requirements
@@ -53,29 +63,408 @@ pip3 install past_date2word
 ***
 ## Example
 
+> NOTE: Not all cases will be written because they are many, do not worry, you can see the [tests file](tests/test_past_date2word.py) that contains all the possible cases (**if you think otherwise, add the test and do a PR, we will be happy with that**)
+
+> NOTE: `with_ago` parameter will add `"ago"` to the end of the sentence if its `True`, and if not, he will not add it
+
+> NOTE: `long_sentence` parameter will add the hours, minutes and seconds to the sentence if its `True`, and if not, he will not add it
+
+### English
+
+#### Seconds
 ```python
-from past_date2word import past_date2word
-from datetime import datetime, timedelta
+time = datetime.now() - timedelta(seconds=1)
 
-# Less than one second of time
-date = datetime.now() - timedelta(seconds=1)
-print(past_date2word(date)) # "1 second ago"
+assert (
+    past_date2word(date=time, language="en", with_ago=False, long_sentence=True)
+    == "1 second" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=True, long_sentence=False)
+    == "1 second ago" # Output of past_date2word
+)
+```
+**[[Back To Top 🔝]](#past_date2word)**
 
-# Less than 23 seconds of time
-date = datetime.now() - timedelta(seconds=23)
-print(past_date2word(date)) # "23 seconds ago"
+#### Minutes
+```python
+time = datetime.now() - timedelta(minutes=9, seconds=34)
 
-# Less than 1 week and 1 day of time
-date = datetime.now() - timedelta(weeks=1, days=1)
-print(past_date2word(date)) #"1 week and 1 day ago"
+assert (
+    past_date2word(date=time, language="en", with_ago=True, long_sentence=True)
+    == "9 minutes and 34 seconds ago" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=False, long_sentence=True)
+    == "9 minutes and 34 seconds" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=True, long_sentence=False)
+    == "9 minutes ago" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=False, long_sentence=False)
+    == "9 minutes" # Output of past_date2word
+)
+```
 
-# Less than 2 weeks and 4 days of time
-date = datetime.now() - timedelta(weeks=2, days=4)
-print(past_date2word(date)) #"2 weeks and 4 days ago"
+**[[Back To Top 🔝]](#past_date2word)**
 
-# And more try it
+#### Hours
+```python
+time = datetime.now() - timedelta(hours=12, minutes=44)
+
+assert (
+    past_date2word(date=time, language="en", with_ago=True, long_sentence=True)
+    == "12 hours and 44 minutes ago" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=False, long_sentence=True)
+    == "12 hours and 44 minutes" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=True, long_sentence=False)
+    == "12 hours ago" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=False, long_sentence=False)
+    == "12 hours" # Output of past_date2word
+)
+```
+
+**[[Back To Top 🔝]](#past_date2word)**
+
+#### Days
+```python
+time = datetime.now() - timedelta(days=5, hours=15)
+
+assert (
+    past_date2word(date=time, language="en", with_ago=True, long_sentence=True)
+    == "5 days and 15 hours ago" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=False, long_sentence=True)
+    == "5 days and 15 hours" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=True, long_sentence=False)
+    == "5 days ago" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=False, long_sentence=False)
+    == "5 days" # Output of past_date2word
+)
+```
+
+**[[Back To Top 🔝]](#past_date2word)**
+
+#### Weeks
+```python
+time = datetime.now() - timedelta(weeks=2, days=4)
+
+assert (
+    past_date2word(date=time, language="en", with_ago=True, long_sentence=True)
+    == "2 weeks and 4 days ago" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=False, long_sentence=True)
+    == "2 weeks and 4 days" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=True, long_sentence=False)
+    == "2 weeks and 4 days ago" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=False, long_sentence=False)
+    == "2 weeks and 4 days" # Output of past_date2word
+)
+```
+
+**[[Back To Top 🔝]](#past_date2word)**
+
+#### Months
+```python
+# 4 weeks == 1 month
+one_month_to_week = 4 * 1
+
+time = datetime.now() - timedelta(weeks=(one_month_to_week * 3) + 2)
+
+assert (
+    past_date2word(date=time, language="en", with_ago=True, long_sentence=True)
+    == "3 months and 2 weeks ago" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=False, long_sentence=True)
+    == "3 months and 2 weeks" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=True, long_sentence=False)
+    == "3 months and 2 weeks ago" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=False, long_sentence=False)
+    == "3 months and 2 weeks" # Output of past_date2word
+)
+```
+
+**[[Back To Top 🔝]](#past_date2word)**
+
+#### Years
+```python
+# 12 month == 1 year
+# 4 weeks == 1 month
+one_month_to_week = 4 * 1
+one_year_to_week = one_month_to_week * 12
+
+time = datetime.now() - timedelta(
+    weeks=(one_year_to_week * 12) + (one_month_to_week * 5)
+)
+
+assert (
+    past_date2word(date=time, language="en", with_ago=True, long_sentence=True)
+    == "12 years and 5 months ago" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=False, long_sentence=True)
+    == "12 years and 5 months" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=True, long_sentence=False)
+    == "12 years and 5 months ago" # Output of past_date2word
+)
+assert (
+    past_date2word(date=time, language="en", with_ago=False, long_sentence=False)
+    == "12 years and 5 months" # Output of past_date2word
+)
+```
+
+**[[Back To Top 🔝]](#past_date2word)**
+
+### Arabic
+
+#### Seconds
+```python
+time = datetime.now() - timedelta(seconds=13)
+
+print(
+    past_date2word(date=time, language="ar", with_ago=True, long_sentence=True)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=False, long_sentence=True)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=True, long_sentence=False)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=False, long_sentence=False)
+)
+```
+<div dir="rtl">
+المخرجات
 
 ```
+"منذ 13 ثانية"
+"13 ثانية"
+"منذ 13 ثانية"
+"13 ثانية"
+```
+
+</div>
+
+**[[Back To Top 🔝]](#past_date2word)**
+
+#### Minutes
+```python
+time = datetime.now() - timedelta(minutes=13, seconds=13)
+
+print(
+    past_date2word(date=time, language="ar", with_ago=True, long_sentence=True)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=False, long_sentence=True)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=True, long_sentence=False)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=False, long_sentence=False)
+)
+```
+<div dir="rtl">
+المخرجات
+
+```
+"منذ 13 دقيقة و 13 ثانية"
+"13 دقيقة و 13 ثانية"
+"منذ 13 دقيقة"
+"13 دقيقة"
+```
+
+</div>
+
+**[[Back To Top 🔝]](#past_date2word)**
+
+#### Hours
+```python
+time = datetime.now() - timedelta(hours=13, minutes=13)
+
+print(
+    past_date2word(date=time, language="ar", with_ago=True, long_sentence=True)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=False, long_sentence=True)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=True, long_sentence=False)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=False, long_sentence=False)
+)
+```
+<div dir="rtl">
+المخرجات
+
+```
+"منذ 13 ساعة و 13 دقيقة"
+"13 ساعة و 13 دقيقة"
+"منذ 13 ساعة"
+"13 ساعة"
+```
+
+</div>
+
+**[[Back To Top 🔝]](#past_date2word)**
+
+#### Days
+```python
+time = datetime.now() - timedelta(days=6, hours=15)
+
+print(
+    past_date2word(date=time, language="ar", with_ago=True, long_sentence=True)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=False, long_sentence=True)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=True, long_sentence=False)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=False, long_sentence=False)
+)
+```
+<div dir="rtl">
+المخرجات
+
+```
+"منذ 6 ايام و 15 ساعة"
+"6 ايام و 15 ساعة"
+"منذ 6 ايام"
+"6 ايام"
+```
+
+</div>
+
+**[[Back To Top 🔝]](#past_date2word)**
+
+#### Weeks
+```python
+time = datetime.now() - timedelta(weeks=3, days=4)
+
+print(
+    past_date2word(date=time, language="ar", with_ago=True, long_sentence=True)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=False, long_sentence=True)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=True, long_sentence=False)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=False, long_sentence=False)
+)
+```
+<div dir="rtl">
+المخرجات
+
+```
+"منذ 3 اسابيع و 4 ايام"
+"3 اسابيع و 4 ايام"
+"منذ 3 اسابيع و 4 ايام"
+"3 اسابيع و 4 ايام"
+```
+
+</div>
+
+**[[Back To Top 🔝]](#past_date2word)**
+
+#### Months
+```python
+one_month_to_week = 4 * 1
+
+
+time = datetime.now() - timedelta(weeks=(one_month_to_week * 11) + 3)
+print(
+    past_date2word(date=time, language="ar", with_ago=True, long_sentence=True)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=False, long_sentence=True)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=True, long_sentence=False)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=False, long_sentence=False)
+)
+```
+<div dir="rtl">
+المخرجات
+
+```
+"منذ 11 شهر و 3 اسابيع"
+"11 شهر و 3 اسابيع"
+"منذ 11 شهر و 3 اسابيع"
+"11 شهر و 3 اسابيع"
+```
+
+</div>
+
+**[[Back To Top 🔝]](#past_date2word)**
+
+#### Years
+```python
+# 12 month == 1 year
+# 4 weeks == 1 month
+one_month_to_week = 4 * 1
+one_year_to_week = one_month_to_week * 12
+
+time = datetime.now() - timedelta(
+    weeks=(one_year_to_week * 12) + (one_month_to_week * 5)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=True, long_sentence=True)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=False, long_sentence=True)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=True, long_sentence=False)
+)
+print(
+    past_date2word(date=time, language="ar", with_ago=False, long_sentence=False)
+)
+```
+<div dir="rtl">
+المخرجات
+
+```
+"منذ 12 سنة و 5 اشهر"
+"12 سنة و 5 اشهر"
+"منذ 12 سنة و 5 اشهر"
+"12 سنة و 5 اشهر"
+```
+
+</div>
+
 ***
 ## License
 
