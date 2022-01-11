@@ -242,7 +242,7 @@ assert (
 
 ### Arabic
 
-#### SecondsAR
+#### Seconds AR
 ```python
 time = datetime.now() - timedelta(seconds=13)
 
@@ -273,7 +273,7 @@ print(
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### MinutesAR
+#### Minutes AR
 ```python
 time = datetime.now() - timedelta(minutes=13, seconds=13)
 
@@ -304,7 +304,7 @@ print(
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### HoursAR
+#### Hours AR
 ```python
 time = datetime.now() - timedelta(hours=13, minutes=13)
 
@@ -335,7 +335,7 @@ print(
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### DaysAR
+#### Days AR
 ```python
 time = datetime.now() - timedelta(days=6, hours=15)
 
@@ -366,7 +366,7 @@ print(
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### WeeksAR
+#### Weeks AR
 ```python
 time = datetime.now() - timedelta(weeks=3, days=4)
 
@@ -397,7 +397,7 @@ print(
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### MonthsAR
+#### Months AR
 ```python
 one_month_to_week = 4 * 1
 
@@ -430,7 +430,7 @@ print(
 
 **[[Back To Top 🔝]](#past_date2word)**
 
-#### YearsAR
+#### Years AR
 ```python
 # 12 month == 1 year
 # 4 weeks == 1 month
